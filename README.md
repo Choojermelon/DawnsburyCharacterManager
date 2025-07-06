@@ -1,5 +1,4 @@
-# DawnsburyCharacterManager
-
+# DawnsburyCharacterManager 
 ## What is this?
 A simple character manager for [Dawnsbury Days](https://store.steampowered.com/app/2693730/Dawnsbury_Days/), a turn-based RPG by Dawnsbury Studios that's based on the Pathfinder 2e combat system.
 Some friends and I wanted to share our characters easily, so I built this tool. Maybe it can help you too!
@@ -42,3 +41,8 @@ Exports the selected character to a .json file for use with the above.
 
 ### Delete
 Deletes the selected character. Use with caution!
+
+## Who's that cute catfolk in the icon?
+![image](https://github.com/user-attachments/assets/9752feb9-e6ff-4b51-99da-0793107e6b63)
+
+Say hi to Rook, my catfolk cleric!
