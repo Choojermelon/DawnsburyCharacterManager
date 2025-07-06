@@ -16,6 +16,7 @@ namespace DawnsburyCharacterManager
         public AboutForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             labelInfo.Text = "Dawnsbury Days Character Manager";
             labelsmallerinfo.Text = "Created by Chuji! \n\n" +
                 "This is a small application I made for me and my friends to share our Dawnsbury Days characters more easily! I hope you find it useful <3 \n\n" +
