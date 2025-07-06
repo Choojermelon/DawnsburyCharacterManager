@@ -210,7 +210,17 @@ namespace DawnsburyCharacterManager
                         btnMoveUp.Enabled = true;
                         btnBackup.Enabled = true;
 
-                        MessageBox.Show($"Loaded {profiles.Count} character(s). Changes are made immediately, so consider backing up your library file first!", "Success");
+                        DialogResult result = MessageBox.Show(
+    $"Loaded {profiles.Count} character(s).\nChanges are made immediately, so consider backing up your library file first.\n\nWould you like to back it up now?",
+    "Library Loaded",
+    MessageBoxButtons.YesNo,
+    MessageBoxIcon.Question
+);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            BackupLibrary(); // Replace this with your actual backup method
+                        }
                         lblStatus.Text = $"Loaded {profiles.Count} character(s).";
                     }
                     else
@@ -324,6 +334,29 @@ namespace DawnsburyCharacterManager
             about.ShowDialog(); // Modal popup
         }
 
+        private void BackupLibrary()
+        {
+            try
+            {
+                string directory = Path.GetDirectoryName(libraryPath);
+                string fileName = Path.GetFileNameWithoutExtension(libraryPath);
+                string extension = Path.GetExtension(libraryPath);
+
+                // Generate timestamped file name
+                string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+                string backupPath = Path.Combine(directory, $"{fileName}_backup_{timestamp}{extension}");
+
+                // Copy the file
+                File.Copy(libraryPath, backupPath);
+
+                MessageBox.Show($"Backup created at:\n{backupPath}", "Backup Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Backup failed:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnBackup_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(libraryPath) || !File.Exists(libraryPath))
@@ -335,25 +368,7 @@ namespace DawnsburyCharacterManager
             var result = MessageBox.Show("Create a backup of the current library?", "Confirm Backup", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                try
-                {
-                    string directory = Path.GetDirectoryName(libraryPath);
-                    string fileName = Path.GetFileNameWithoutExtension(libraryPath);
-                    string extension = Path.GetExtension(libraryPath);
-
-                    // Generate timestamped file name
-                    string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
-                    string backupPath = Path.Combine(directory, $"{fileName}_backup_{timestamp}{extension}");
-
-                    // Copy the file
-                    File.Copy(libraryPath, backupPath);
-
-                    MessageBox.Show($"Backup created at:\n{backupPath}", "Backup Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Backup failed:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                BackupLibrary();
             }
         }
     }
