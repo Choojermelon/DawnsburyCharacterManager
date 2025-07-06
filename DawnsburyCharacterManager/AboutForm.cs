@@ -35,7 +35,7 @@ namespace DawnsburyCharacterManager
         private void linkKofi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string url = "https://ko-fi.com/chuji";
-
+            
             try
             {
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo

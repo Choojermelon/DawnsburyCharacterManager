@@ -69,47 +69,66 @@ namespace DawnsburyCharacterManager
         }
         private void btnImport_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JSON Files (*.json)|*.json";
+            openFileDialog.Multiselect = true;
+            openFileDialog.Title = "Import Character(s)";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Filter = "JSON Files (*.json)|*.json"
-            };
+                int successCount = 0;
+                List<string> failedFiles = new List<string>();
 
-            if (openDialog.ShowDialog() == DialogResult.OK)
-            {
-                var json = File.ReadAllText(openDialog.FileName);
-                var newProfile = JObject.Parse(json);
-
-                string newName = newProfile["SelectedFeats"]?["Root:Identity"]?["Name"]?.ToString();
-                if (string.IsNullOrWhiteSpace(newName))
+                foreach (var file in openFileDialog.FileNames)
                 {
-                    MessageBox.Show("Invalid character file (no name found).");
-                    return;
-                }
-
-                bool exists = profiles.Any(p => p["SelectedFeats"]?["Root:Identity"]?["Name"]?.ToString() == newName);
-                if (exists)
-                {
-                    var result = MessageBox.Show(
-                   $"A character named \"{newName}\" already exists. Import duplicate?",
-                   "Duplicate Character",
-                   MessageBoxButtons.YesNo,
-                   MessageBoxIcon.Warning
-               );
-
-                    if (result == DialogResult.No)
+                    try
                     {
-                        lblStatus.Text = $"Import canceled.";
-                        return;
+                        string jsonText = File.ReadAllText(file);
+                        JObject importedChar = JObject.Parse(jsonText);
+
+                        var name = importedChar["SelectedFeats"]?["Root:Identity"]?["Name"]?.ToString();
+
+                        if (string.IsNullOrEmpty(name))
+                            throw new Exception("Character has no name.");
+
+                        // Check for duplicates
+                        bool nameExists = profiles.Any(p =>
+                            p["SelectedFeats"]?["Root:Identity"]?["Name"]?.ToString() == name);
+
+                        if (nameExists)
+                        {
+                            DialogResult result = MessageBox.Show(
+                                $"Character \"{name}\" already exists. Import anyway?",
+                                "Duplicate Character",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question
+                            );
+                            if (result != DialogResult.Yes)
+                            {
+                                continue;
+                            }
+                        }
+
+                        profiles.Add(importedChar);
+                        lstCharacters.Items.Add(name);
+                        successCount++;
+                    }
+                    catch
+                    {
+                        failedFiles.Add(Path.GetFileName(file));
                     }
                 }
 
-                profiles.Add(newProfile);
-                characterLibrary["Profiles"] = profiles;
 
-                File.WriteAllText(libraryPath, characterLibrary.ToString(Formatting.Indented));
-                lstCharacters.Items.Add(newName);
+                // Summary dialog
+                string summary = $"Successfully imported: {successCount}\n";
+                if (failedFiles.Count > 0)
+                {
+                    summary += $"Failed to import {failedFiles.Count} file(s):\n- {string.Join("\n- ", failedFiles)}";
+                }
 
-                lblStatus.Text = $"Imported {newName}.";
+                MessageBox.Show(summary, "Import Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblStatus.Text = $"Imported {successCount} character(s).";
             }
         }
 

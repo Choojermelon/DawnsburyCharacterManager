@@ -81,10 +81,10 @@
             this.linkKofi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkKofi.Location = new System.Drawing.Point(66, 322);
             this.linkKofi.Name = "linkKofi";
-            this.linkKofi.Size = new System.Drawing.Size(136, 24);
+            this.linkKofi.Size = new System.Drawing.Size(132, 24);
             this.linkKofi.TabIndex = 3;
             this.linkKofi.TabStop = true;
-            this.linkKofi.Text = "Buy me a Ko-fi!";
+            this.linkKofi.Text = "Donate a Ko-fi!";
             this.linkKofi.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkKofi_LinkClicked);
             // 
             // pictureBox3
