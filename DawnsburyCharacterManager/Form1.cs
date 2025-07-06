@@ -225,6 +225,9 @@ namespace DawnsburyCharacterManager
                 // Save changes
                 characterLibrary["Profiles"] = profiles;
                 File.WriteAllText(libraryPath, characterLibrary.ToString(Formatting.Indented));
+
+                lblStatus.Text = $"Moved character '{tempName}' up.";
+
             }
         }
         private void lstCharacters_SelectedIndexChanged(object sender, EventArgs e)
@@ -255,7 +258,16 @@ namespace DawnsburyCharacterManager
                 // Save changes
                 characterLibrary["Profiles"] = profiles;
                 File.WriteAllText(libraryPath, characterLibrary.ToString(Formatting.Indented));
+
+                lblStatus.Text = $"Moved character '{tempName}' down.";
+
             }
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            var about = new AboutForm();
+            about.ShowDialog(); // Modal popup
         }
     }
 }
