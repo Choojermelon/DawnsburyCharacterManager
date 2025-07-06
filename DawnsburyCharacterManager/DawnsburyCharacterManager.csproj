@@ -99,6 +99,7 @@
   <ItemGroup>
     <Content Include="DCM.ico" />
     <Content Include="favicon.ico" />
+    <None Include="Resources\github icon.png" />
     <None Include="Resources\ChujiOtter.png" />
     <None Include="Resources\kofi.png" />
     <None Include="Resources\bsky icon.jpg" />
