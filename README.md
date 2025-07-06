@@ -42,6 +42,15 @@ Exports the selected character to a .json file for use with the above.
 ### Delete
 Deletes the selected character. Use with caution!
 
+## What do I do about tokens?
+Tokens aren't stored in AppData with your character library; they're stored wherever the game is, so they basically need to be managed separately.
+
+Luckily, they are all stored in separate files, unlike character data! So if you import a friend's character using this application, you can drag their token file(s) into the tokens folder(s) and, as long as the name is what the character data expects, it'll match up!
+
+Tokens are stored in:
+* Steam/steamapps/common/DawnsburyDays/CustomPortraits
+* Steam/steamapps/common/DawnsburyDays/CustomPortraitsWithCustomRing
+
 ## Who's that cute catfolk in the icon?
 ![image](https://github.com/user-attachments/assets/9752feb9-e6ff-4b51-99da-0793107e6b63)
 
