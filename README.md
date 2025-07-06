@@ -8,8 +8,11 @@ Some friends and I wanted to share our characters easily, so I built this tool. 
 It's in the releases section over there on the right! I know github UI is pretty esoteric, though, so you can also just [click here](https://github.com/Choojermelon/DawnsburyCharacterManager/releases)!
 
 ## This is cool! Can I say hi?
-Check out my [Bluesky](https://bsky.app/profile/chuji.bsky.social), hit me up on Discord (@chuji), or if you're feeling extra nice,
-[here's my Ko-Fi](https://ko-fi.com/chuji)!
+Check out my [Bluesky](https://bsky.app/profile/chuji.bsky.social), or hit me up on Discord (@chuji).
+
+If you're feeling extra nice, [here's my Ko-Fi](https://ko-fi.com/chuji)!
+
+Feel free to ask for features you might want to see, or let me know if there's any bugs.
 
 ## How do I use it?
 Let's take a look at the UI!
