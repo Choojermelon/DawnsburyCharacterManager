@@ -57,7 +57,7 @@
             this.labelsmallerinfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelsmallerinfo.Location = new System.Drawing.Point(12, 40);
             this.labelsmallerinfo.Name = "labelsmallerinfo";
-            this.labelsmallerinfo.Size = new System.Drawing.Size(391, 113);
+            this.labelsmallerinfo.Size = new System.Drawing.Size(391, 192);
             this.labelsmallerinfo.TabIndex = 1;
             this.labelsmallerinfo.Text = "label1";
             this.labelsmallerinfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -67,7 +67,7 @@
             // 
             this.linkBsky.AutoSize = true;
             this.linkBsky.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkBsky.Location = new System.Drawing.Point(66, 189);
+            this.linkBsky.Location = new System.Drawing.Point(66, 269);
             this.linkBsky.Name = "linkBsky";
             this.linkBsky.Size = new System.Drawing.Size(182, 24);
             this.linkBsky.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             this.linkKofi.AutoSize = true;
             this.linkKofi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkKofi.Location = new System.Drawing.Point(66, 242);
+            this.linkKofi.Location = new System.Drawing.Point(66, 322);
             this.linkKofi.Name = "linkKofi";
             this.linkKofi.Size = new System.Drawing.Size(136, 24);
             this.linkKofi.TabIndex = 3;
@@ -90,7 +90,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::DawnsburyCharacterManager.Properties.Resources.ChujiOtter;
-            this.pictureBox3.Location = new System.Drawing.Point(254, 156);
+            this.pictureBox3.Location = new System.Drawing.Point(254, 235);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(149, 140);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,9 +100,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DawnsburyCharacterManager.Properties.Resources.kofi;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 232);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 312);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox2.Size = new System.Drawing.Size(48, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -111,9 +111,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DawnsburyCharacterManager.Properties.Resources.bsky_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 178);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 258);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.Size = new System.Drawing.Size(48, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 307);
+            this.ClientSize = new System.Drawing.Size(415, 385);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -135,6 +135,7 @@
             this.Name = "AboutForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "About";
+            this.Load += new System.EventHandler(this.AboutForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -19,7 +19,7 @@ namespace DawnsburyCharacterManager
             labelInfo.Text = "Dawnsbury Days Character Manager";
             labelsmallerinfo.Text = "Created by Chuji! \n\n" +
                 "This is a small application I made for me and my friends to share our Dawnsbury Days characters more easily! I hope you find it useful <3 \n\n" +
-                "Feel free to shoot me a message on social media or buy me a Ko-fi if you like it! Do let me know if you find any bugs, too!";
+                "Feel free to shoot me a message on social media or donate a Ko-fi if you like it! Do let me know if you find any bugs, too!";
         }
 
         private void labelInfo_Click(object sender, EventArgs e)
@@ -69,6 +69,11 @@ namespace DawnsburyCharacterManager
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AboutForm_Load(object sender, EventArgs e)
         {
 
         }

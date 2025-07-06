@@ -22,6 +22,7 @@ namespace DawnsburyCharacterManager
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace DawnsburyCharacterManager
             btnImport.Enabled = false;
             btnMoveDown.Enabled = false;
             btnMoveUp.Enabled = false;
+            btnBackup.Enabled = false;
 
             lblStatus.Text = "Open a Character Library to begin!";
         }
@@ -187,12 +189,15 @@ namespace DawnsburyCharacterManager
                         btnImport.Enabled = true;
                         btnMoveDown.Enabled = true;
                         btnMoveUp.Enabled = true;
+                        btnBackup.Enabled = true;
 
+                        MessageBox.Show($"Loaded {profiles.Count} character(s). Changes are made immediately, so consider backing up your library file first!", "Success");
                         lblStatus.Text = $"Loaded {profiles.Count} character(s).";
                     }
                     else
                     {
                         MessageBox.Show("Selected file is not a Character Library or contains 0 characters.","Error");
+                        lblStatus.Text = "";
                     }
 
                 }
@@ -235,7 +240,37 @@ namespace DawnsburyCharacterManager
             int index = lstCharacters.SelectedIndex;
             btnMoveUp.Enabled = index > 0;
             btnMoveDown.Enabled = index >= 0 && index < lstCharacters.Items.Count - 1;
-        }
+
+            // Display character info
+
+            if (index < 0 || index >= profiles.Count) return;
+
+            JObject character = (JObject)profiles[index];
+
+            try
+            {
+                var feats = character["SelectedFeats"] as JObject;
+                if (feats == null) return;
+
+                var identity = feats["Root:Identity"] as JObject;
+                var ancestry = feats["Root:Ancestry"] as JObject;
+                var classFeat = feats["Root:Class"] as JObject;
+
+                string name = identity?["Name"]?.ToString() ?? "Unknown";
+                string ancestryName = ancestry?["MainFeat"]?.ToString() ?? "Unknown";
+                string className = classFeat?["MainFeat"]?.ToString() ?? "Unknown";
+                int maxLevel = character.Value<int?>("MaximumLevel") ?? 0;
+
+                lblName.Text = $"{name}";
+                txtDetails.Text = $"Class: {className}\r\nAncestry: {ancestryName}\r\nMax level: {maxLevel}" +
+                    "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error reading character details:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }   
 
         private void btnMoveDown_Click(object sender, EventArgs e)
         {
@@ -268,6 +303,39 @@ namespace DawnsburyCharacterManager
         {
             var about = new AboutForm();
             about.ShowDialog(); // Modal popup
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(libraryPath) || !File.Exists(libraryPath))
+            {
+                MessageBox.Show("No character library file is currently loaded.", "Backup Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var result = MessageBox.Show("Create a backup of the current library?", "Confirm Backup", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    string directory = Path.GetDirectoryName(libraryPath);
+                    string fileName = Path.GetFileNameWithoutExtension(libraryPath);
+                    string extension = Path.GetExtension(libraryPath);
+
+                    // Generate timestamped file name
+                    string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+                    string backupPath = Path.Combine(directory, $"{fileName}_backup_{timestamp}{extension}");
+
+                    // Copy the file
+                    File.Copy(libraryPath, backupPath);
+
+                    MessageBox.Show($"Backup created at:\n{backupPath}", "Backup Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Backup failed:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
