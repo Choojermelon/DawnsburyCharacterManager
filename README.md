@@ -57,6 +57,7 @@ Tokens are stored in:
 * Steam/steamapps/common/DawnsburyDays/CustomPortraitsWithCustomRing
 
 ## Who's that cute catfolk in the icon?
-![image](https://github.com/user-attachments/assets/9752feb9-e6ff-4b51-99da-0793107e6b63)
+![image](https://github.com/user-attachments/assets/9752feb9-e6ff-4b51-99da-0793107e6b63)![image](https://github.com/user-attachments/assets/1f3144ae-1b0c-4767-aac7-6df0a8c9f0b5)
+
 
 Say hi to Rook, my catfolk cleric!
