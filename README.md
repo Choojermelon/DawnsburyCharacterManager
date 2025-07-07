@@ -3,6 +3,8 @@
 A simple character manager for [Dawnsbury Days](https://store.steampowered.com/app/2693730/Dawnsbury_Days/), a turn-based RPG by Dawnsbury Studios that's based on the Pathfinder 2e combat system.
 Some friends and I wanted to share our characters easily, so I built this tool. Maybe it can help you too!
 
+This is also, uh, my first time writing software and publishing it to Github like this. I usually just do webdev for my job LOL. So if anything's weird/easily fixable about it, let me know!
+
 ## Where do I download it?
 It's in the releases section over there on the right! I know github UI is pretty esoteric, though, so you can also just [click here](https://github.com/Choojermelon/DawnsburyCharacterManager/releases)!
 
