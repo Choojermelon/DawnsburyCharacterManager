@@ -6,7 +6,8 @@ Some friends and I wanted to share our characters easily, so I built this tool. 
 This is also, uh, my first time writing software and publishing it to Github like this. I usually just do webdev for my job LOL. So if anything's weird/easily fixable about it, let me know!
 
 ## Where do I download it?
-It's in the releases section over there on the right! I know github UI is pretty esoteric, though, so you can also just [click here](https://github.com/Choojermelon/DawnsburyCharacterManager/releases)!
+It's in the releases section over there on the right! I know github UI is pretty esoteric, though, so you can also just...
+### [Click here to Download!](https://github.com/Choojermelon/DawnsburyCharacterManager/releases)!
 
 ## This is cool! Can I say hi?
 Check out my [Bluesky](https://bsky.app/profile/chuji.bsky.social), or hit me up on Discord (@chuji).
