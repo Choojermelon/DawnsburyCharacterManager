@@ -7,7 +7,7 @@ This is also, uh, my first time writing software and publishing it to Github lik
 
 ## Where do I download it?
 It's in the releases section over there on the right! I know github UI is pretty esoteric, though, so you can also just...
-### [Click here to Download!](https://github.com/Choojermelon/DawnsburyCharacterManager/releases)!
+### [Click here to Download!](https://github.com/Choojermelon/DawnsburyCharacterManager/releases)
 
 ## This is cool! Can I say hi?
 Check out my [Bluesky](https://bsky.app/profile/chuji.bsky.social), or hit me up on Discord (@chuji).
