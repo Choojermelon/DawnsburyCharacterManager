@@ -47,6 +47,8 @@ Tokens aren't stored in AppData with your character library; they're stored wher
 
 Luckily, they are all stored in separate files, unlike character data! So if you import a friend's character using this application, you can drag their token file(s) into the tokens folder(s) and, as long as the name is what the character data expects, it'll match up!
 
+In the past, I've just shared both my token folders wholesale with friends, and they do the same with each other; it's easy to merge them that way!
+
 Tokens are stored in:
 * Steam/steamapps/common/DawnsburyDays/CustomPortraits
 * Steam/steamapps/common/DawnsburyDays/CustomPortraitsWithCustomRing
