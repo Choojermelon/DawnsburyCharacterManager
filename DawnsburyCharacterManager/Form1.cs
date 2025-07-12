@@ -119,6 +119,8 @@ namespace DawnsburyCharacterManager
                     }
                 }
 
+                characterLibrary["Profiles"] = profiles;
+                File.WriteAllText(libraryPath, characterLibrary.ToString(Formatting.Indented));
 
                 // Summary dialog
                 string summary = $"Successfully imported: {successCount}\n";
